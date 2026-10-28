@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NovaPlay — купить игры PS5, Xbox, Steam, Telegram Stars и NFT</title>
+<meta name="description" content="Магазин игр для PlayStation, Xbox и Steam, Telegram Stars и NFT. Новинки, скидки, быстрая выдача.">
+<style>
+:root{--bg:#0a0a18;--card:#14142b;--tx:#f1f1ff;--mut:#9a9ac0;--a:#7c5cff;--b:#00e5ff;--c:#ff3d9a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f2ff;--card:#fff;--tx:#15152b;--mut:#5b5b80;color-scheme:light}}
+:root[data-theme="dark"]{--bg:#0a0a18;--card:#14142b;--tx:#f1f1ff;--mut:#9a9ac0}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+.w{max-width:1100px;margin:auto;padding:0 18px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:22px;background:linear-gradient(90deg,var(--b),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cart{background:var(--card);border:1px solid #7c5cff55;color:var(--tx);padding:8px 16px;border-radius:99px;font-size:15px}
+.hero{text-align:center;padding:56px 0 40px;position:relative}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,#7c5cff55,transparent 50%),radial-gradient(circle at 75% 40%,#00e5ff33,transparent 50%);z-index:-1}
+h1{font-size:clamp(34px,7vw,66px);line-height:1.05;font-weight:900}
+h1 span{background:linear-gradient(90deg,var(--a),var(--b),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);max-width:540px;margin:16px auto 26px;font-size:18px}
+.btn{display:inline-block;background:linear-gradient(90deg,var(--a),var(--c));color:#fff;border:0;padding:13px 28px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none}
+h2{font-size:28px;margin:44px 0 16px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{background:var(--card);color:var(--mut);border:1px solid #7c5cff33;padding:8px 18px;border-radius:99px;cursor:pointer;font-size:15px}
+.tab.on{background:var(--a);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.g{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid #7c5cff22;transition:transform .2s}
+.g:hover{transform:translateY(-4px);border-color:var(--b)}
+.art{aspect-ratio:3/4;position:relative;overflow:hidden;font-size:12px;font-weight:700}.art svg{width:100%;height:100%;display:block}.art i{position:absolute;left:10px;bottom:10px}
+.art i{background:#000a;color:#fff;padding:3px 8px;border-radius:6px;font-style:normal}
+.sale{position:absolute;top:10px;right:10px;background:var(--c);color:#fff;padding:3px 8px;border-radius:6px}
+.bd{padding:14px}
+.bd b{display:block;font-size:16px}
+.pr{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.pr s{color:var(--mut);font-size:13px;margin-right:6px}
+.pr strong{font-size:18px}
+.add{background:var(--a);color:#fff;border:0;border-radius:10px;padding:7px 12px;cursor:pointer;font-weight:700}
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.k{background:var(--card);border-radius:16px;padding:22px;text-align:center;border:1px solid #00e5ff33}
+.k .big{font-size:34px}
+.k h3{margin:8px 0 4px}.k p{color:var(--mut);font-size:14px}
+.k .pr{justify-content:center;gap:14px;flex-direction:column}
+.nft{height:150px;border-radius:12px;margin-bottom:12px}
+.perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:40px}
+.perks div{padding:16px;border-radius:14px;background:var(--card);color:var(--mut);font-size:14px}
+.perks b{color:var(--tx);display:block;font-size:16px}
+footer{margin-top:60px;padding:26px 0;text-align:center;color:var(--mut);font-size:13px;border-top:1px solid #7c5cff22}
+#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(80px);background:var(--a);color:#fff;padding:10px 20px;border-radius:12px;transition:.3s;font-weight:600}
+#toast.s{transform:translateX(-50%)}
+</style>
+</head>
+<body>
+<div class="w">
+<nav><div class="logo">NovaPlay</div><button class="cart">🛒 Корзина: <span id="n">0</span> · <span id="t">0</span> ₽</button></nav>
+
+<section class="hero">
+<h1>Игры, звёзды и NFT <span>по лучшим ценам</span></h1>
+<p>PlayStation, Xbox, Steam — новинки со скидками, Telegram Stars и коллекционные NFT. Выдача за пару минут.</p>
+<a class="btn" href="#games">Смотреть игры</a>
+</section>
+
+<h2 id="games">🎮 Новинки и хиты</h2>
+<div class="tabs" id="tabs">
+<button class="tab on" data-p="all">Все</button><button class="tab" data-p="PS5">PlayStation</button><button class="tab" data-p="Xbox">Xbox</button><button class="tab" data-p="Steam">Steam</button>
+</div>
+<div class="grid" id="grid"></div>
+
+<h2>⭐ Telegram Stars</h2>
+<div class="pk" id="stars"></div>
+
+<h2>🖼 NFT-коллекции</h2>
+<div class="pk" id="nfts"></div>
+
+<div class="perks">
+<div><b>⚡ Быстрая выдача</b>Ключи и коды — в течение нескольких минут</div>
+<div><b>🔒 Безопасная оплата</b>Карты, СБП и криптовалюта</div>
+<div><b>💬 Поддержка 24/7</b>Отвечаем в чате в любое время</div>
+<div><b>💎 Кэшбэк</b>До 5% бонусами с каждой покупки</div>
+</div>
+<footer>© 2026 NovaPlay · Демо-страница: цены и товары ориентировочные</footer>
+</div>
+<div id="toast"></div>
+
+<script>
+var G=[
+["EA Sports FC 26","PS5",3990,2990,"#1db954,#0a3d62"],
+["Battlefield 6","Steam",4490,3490,"#f39c12,#2c3e50"],
+["Borderlands 4","Xbox",4990,3790,"#ff9f1a,#6c2bd9"],
+["Ghost of Yōtei","PS5",5490,4690,"#e74c3c,#2d1b3d"],
+["Death Stranding 2","PS5",5290,4290,"#00cec9,#2d3436"],
+["Hollow Knight: Silksong","Steam",990,890,"#d63031,#1e1e2f"],
+["Clair Obscur: Expedition 33","Xbox",3490,2790,"#fdcb6e,#6c5ce7"],
+["Elden Ring Nightreign","Steam",3290,2590,"#f1c40f,#1b1b1b"],
+["Call of Duty: Black Ops 7","Xbox",5990,4990,"#27ae60,#111"],
+["Assassin’s Creed Shadows","Steam",4990,2990,"#c0392b,#0f0c29"]
+];
+var S=[["50 ⭐","Для старта",95],["100 ⭐","Популярный",185],["500 ⭐","Выгодно",880],["1000 ⭐","Максимум",1690]];
+var N=[["Cyber Foxes","#7c5cff,#00e5ff",0.05],["Neon Samurai","#ff3d9a,#ffb800",0.08],["Pixel Galaxy","#00e5ff,#2ecc71",0.03]];
+var cnt=0,sum=0;
+function fmt(x){return x.toLocaleString("ru-RU")}
+function add(name,p){cnt++;sum+=p;document.getElementById("n").textContent=cnt;document.getElementById("t").textContent=fmt(sum);var t=document.getElementById("toast");t.textContent="Добавлено: "+name;t.className="s";setTimeout(function(){t.className=""},1500)}
+function cover(t,c,i){var p=c.split(","),w=t.split(" "),L=[],cur="";w.forEach(function(x){if((cur+" "+x).trim().length>13&&cur){L.push(cur);cur=x}else cur=(cur+" "+x).trim()});L.push(cur);var s='<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="a'+i+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient><linearGradient id="b'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset=".4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".85"/></linearGradient></defs><rect width="300" height="400" fill="url(#a'+i+')"/>';s+='<circle cx="'+(80+(i*37)%140)+'" cy="130" r="90" fill="#fff" opacity=".15"/><circle cx="220" cy="90" r="50" fill="#000" opacity=".2"/><path d="M0 260 L90 170 L160 240 L230 150 L300 230 V400 H0Z" fill="#000" opacity=".35"/><rect width="300" height="400" fill="url(#b'+i+')"/>';L.forEach(function(l,k){s+='<text x="150" y="'+(310-(L.length-1)*14+k*30)+'" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="26" font-weight="900" fill="#fff" letter-spacing="1">'+l.toUpperCase()+'</text>'});return s+'</svg>'}
+function draw(f){
+ var h="";
+ G.forEach(function(g,i){
+  if(f!=="all"&&g[1]!==f)return;
+  var d=Math.round((1-g[3]/g[2])*100);
+  h+='<div class="g"><div class="art">'+cover(g[0],g[4],i)+'<i>'+g[1]+'</i><span class="sale">−'+d+'%</span></div><div class="bd"><b>'+g[0]+'</b><div class="pr"><div><s>'+fmt(g[2])+'</s><strong>'+fmt(g[3])+' ₽</strong></div><button class="add" data-i="'+i+'">+</button></div></div></div>';
+ });
+ document.getElementById("grid").innerHTML=h;
+}
+document.getElementById("grid").onclick=function(e){var b=e.target.closest(".add");if(b){var g=G[b.dataset.i];add(g[0],g[3])}};
+document.getElementById("tabs").onclick=function(e){var b=e.target.closest(".tab");if(!b)return;document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("on")});b.classList.add("on");draw(b.dataset.p)};
+document.getElementById("stars").innerHTML=S.map(function(s,i){return '<div class="k"><div class="big">'+s[0]+'</div><h3>'+s[1]+'</h3><div class="pr"><strong>'+fmt(s[2])+' ₽</strong><button class="add" data-s="'+i+'">В корзину</button></div></div>'}).join("");
+document.getElementById("nfts").innerHTML=N.map(function(n,i){return '<div class="k"><div class="nft" style="background:linear-gradient(135deg,'+n[1]+')"></div><h3>'+n[0]+'</h3><p>Лимитированная серия</p><div class="pr"><strong>'+n[2]+' ETH</strong><button class="add" data-n="'+i+'">Купить</button></div></div>'}).join("");
+document.getElementById("stars").onclick=function(e){var b=e.target.closest(".add");if(b){var s=S[b.dataset.s];add(s[0],s[2])}};
+document.getElementById("nfts").onclick=function(e){var b=e.target.closest(".add");if(b){var n=N[b.dataset.n];add(n[0],Math.round(n[2]*250000))}};
+draw("all");
+</script>
+</body>
+</html>
